@@ -112,6 +112,18 @@ SD总线的通信是基于命令和数据流的。由一个起始位开始，由
 
 ## 核心代码
 
+都需要配置硬件流控制，以此避免读写卡失败，事实上若不设置硬件流控制，单片可以可以读取到卡的信息，使用FATFS也可以在挂载和读写中返回成功值0，但实际上没有任何读写。
+
+这里ST手册上的说明是：
+
+>HW flow control
+>
+>The HW flow control functionality is used to avoid FIFO underrun (TX mode) and overrun (RX mode) errors.
+>
+>The behavior is to stop SDIO_CK and freeze SDIO state machines. The data transfer is stalled while the FIFO is unable to transmit or receive data. Only state machines clocked by SDIOCLK are frozen, the AHB interface is still alive. The FIFO can thus be filled or emptied even if flow control is activated.
+>
+>To enable HW flow control, the SDIO_CLKCR[14] register bit must be set to 1. After reset Flow Control is disabled.
+
 ### 无FATFS读写512字节数据
 
 ```c
@@ -200,6 +212,47 @@ void sd_read_test(uint32_t secaddr,uint32_t seccnt){
 ```
 
 ### 有FATFS读写文件核心代码
+
+SDIO配置
+
+```c
+uint8_t BSP_SD_Init(void)
+{
+  uint8_t sd_state = MSD_OK;
+  /* Check if the SD card is plugged in the slot */
+  if (BSP_SD_IsDetected() != SD_PRESENT)
+  {
+    return MSD_ERROR;
+  }
+  /* HAL SD initialization */
+  sd_state = HAL_SD_Init(&hsd);
+  /* Configure SD Bus width (4 bits mode selected) */
+  if (sd_state == MSD_OK)
+  {
+    /* Enable wide operation */
+    if (HAL_SD_ConfigWideBusOperation(&hsd, SDIO_BUS_WIDE_4B) != HAL_OK)
+    {
+      sd_state = MSD_ERROR;
+    }
+  }
+
+  return sd_state;
+}
+void MX_SDIO_SD_Init(void)
+{
+  hsd.Instance = SDIO;
+  hsd.Init.ClockEdge = SDIO_CLOCK_EDGE_RISING;
+  hsd.Init.ClockBypass = SDIO_CLOCK_BYPASS_DISABLE;
+  hsd.Init.ClockPowerSave = SDIO_CLOCK_POWER_SAVE_DISABLE;
+  hsd.Init.BusWide = SDIO_BUS_WIDE_1B;
+  hsd.Init.HardwareFlowControl = SDIO_HARDWARE_FLOW_CONTROL_ENABLE;
+  hsd.Init.ClockDiv = 2;
+  
+  BSP_SD_Init();
+}
+```
+
+使用FATFS库进行文件读写
 
 ```c
 void fs_test(void){

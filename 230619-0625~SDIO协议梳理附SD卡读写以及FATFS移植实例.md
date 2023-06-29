@@ -98,7 +98,7 @@ SD总线的通信是基于命令和数据流的。由一个起始位开始，由
 
 [![pCNHSUO.png](https://s1.ax1x.com/2023/06/25/pCNHSUO.png)](https://imgse.com/i/pCNHSUO)
 
-#### 宽位数据包（巨帧数据包）
+#### 宽位数据包
 
 不按字节，传输512bit数据：
 

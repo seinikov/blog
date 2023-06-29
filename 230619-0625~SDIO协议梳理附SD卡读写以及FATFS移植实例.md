@@ -1,6 +1,6 @@
 # SDIO协议梳理附SD卡读写以及FATFS移植实例
 
-SDIO也采用串行通信的思想；一种与SD-Card，SD-MMC或者SD总线设备通信的协议，基于命令和数据流。SDIO协议标准涉及OSI模型的物理层，数据链路层和网络层。
+SDIO（Secure Digital Input Output）也采用串行通信的思想；一种与SD-Card，SD-MMC或者SD总线设备通信的协议，基于命令和数据流。SDIO协议标准涉及OSI模型的物理层，数据链路层和网络层。
 
 ## 物理层
 

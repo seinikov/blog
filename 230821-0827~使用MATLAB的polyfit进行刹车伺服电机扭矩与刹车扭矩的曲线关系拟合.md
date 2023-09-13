@@ -30,7 +30,7 @@ f = polyval(cur,y_avr);
 plot(y_avr,x,'-o',y_avr,f,'--');
 legend('data average result','fitting result','Location','northwest');
 str=sprintf('y = %.5ex + %.5e',cur);
-text(y_avr(4),x(4),strcat('\leftarrow',str),'Fontsize',12);
+text(y_avr(4),f(4),strcat('\leftarrow',str),'Fontsize',12);
 ```
 
 ## 效果：

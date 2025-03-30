@@ -20,31 +20,27 @@ $$
 $$
 \begin{equation}
 \left[
-\begin{array}{c}
-   I_\alpha \\\\
-   I_\beta \\
-\end{array}
-\right]
-=
-\left[
-\begin{array}{ccc}
+\begin{matrix}
+   I_\alpha \\
+   I_\beta\\
+\end{matrix}
+\right]=\left[
+\begin{matrix}
     1 & -\cos \frac{2\pi}{3} & -\cos \frac{2\pi}{3} \\\\
     0 & \sin\frac{2\pi}{3}   & -\sin\frac{2\pi}{3}  \\
-\end{array}
+\end{matrix}
 \right]
 \left[
-\begin{array}{c}
+\begin{matrix}
     I_A \\\\
     I_B \\\\
     I_C
-\end{array}
-\right]
-=
-\left[
-\begin{array}{c}
+\end{matrix}
+\right]=\left[
+\begin{matrix}
     I_A-\frac{1}{2}(I_B+I_C) \\
     \frac{\sqrt{3}}{2}(I_B-I_C) \\
-\end{array}
+\end{matrix}
 \right]
 \end{equation}
 $$
@@ -81,31 +77,26 @@ $$
 $$
 \begin{equation}
 \left[
-\begin{array}{c}
+\begin{matrix}
    I_\alpha \\\\
    I_\beta \\
-\end{array}
-\right]
-=
-\left[
-\begin{array}{ccc}
+\end{matrix}
+\right]=\left[
+\begin{matrix}
     1 & -\cos \frac{2\pi}{3} & -\cos \frac{2\pi}{3} \\\\
     0 & \sin\frac{2\pi}{3}   & -\sin\frac{2\pi}{3}  \\
-\end{array}
-\right]
-\left[
-\begin{array}{c}
+\end{matrix}
+\right]\left[
+\begin{matrix}
     1 \\\\
     -\frac{1}{2} \\\\
     -\frac{1}{2}
-\end{array}
-\right]
-=
-\left[
-\begin{array}{c}
+\end{matrix}
+\right]=\left[
+\begin{matrix}
    \frac{3}{2} \\\\
    0
-\end{array}
+\end{matrix}
 \right]
 \end{equation}
 $$
@@ -115,32 +106,27 @@ $$
 $$
 \begin{equation}
 \left[
-\begin{array}{c}
+\begin{matrix}
    I_\alpha \\\\
    I_\beta \\
-\end{array}
-\right]
-=
-\frac{2}{3}
+\end{matrix}
+\right]=\frac{2}{3}
 \left[
-\begin{array}{ccc}
+\begin{matrix}
     1 & -\cos \frac{2\pi}{3} & -\cos \frac{2\pi}{3} \\\\
     0 & \sin\frac{2\pi}{3}   & -\sin\frac{2\pi}{3}  \\
-\end{array}
-\right]
-\left[
-\begin{array}{c}
+\end{matrix}
+\right]\left[
+\begin{matrix}
     I_A \\\\
     I_B \\\\
     I_C
-\end{array}
-\right]
-=
-\left[
-\begin{array}{c}
+\end{matrix}
+\right]=\left[
+\begin{matrix}
     \frac{2}{3}I_A-\frac{1}{3}(I_B+I_C) \\
     \frac{\sqrt{3}}{3}(I_B-I_C) \\
-\end{array}
+\end{matrix}
 \right]
 \end{equation}
 $$
@@ -163,30 +149,25 @@ $$
 $$
 \begin{equation}
 \left[
-\begin{array}{c}
+\begin{matrix}
    I_d \\
    I_q \\
-\end{array}
-\right]
-=
-\left[
-\begin{array}{cc}
+\end{matrix}
+\right]=\left[
+\begin{matrix}
     -\sin\theta I_\alpha & \cos\theta I_\beta \\
     \cos\theta I_\alpha  & \sin\theta I_\beta \\
-\end{array}
-\right]
-\left[
-\begin{array}{c}
+\end{matrix}
+\right]\left[
+\begin{matrix}
     I_\alpha \\
     I_\beta \\
-\end{array}
-\right]
-=
-\left[
-\begin{array}{c}
+\end{matrix}
+\right]=\left[
+\begin{matrix}
     -\sin\theta I_\alpha+ \cos\theta I_\beta\\
     \cos\theta I_\alpha + \sin\theta I_\beta\\
-\end{array}
+\end{matrix}
 \right]
 \end{equation}
 $$
